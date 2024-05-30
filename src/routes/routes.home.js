@@ -1,12 +1,9 @@
 import { Router } from "express";
+import { contact, home } from "../controllers/controller.home";
 
 const rutaHome = Router();
 
-rutaHome.get("/", (req,res) => {
-    res.send("<h1>Hola</h1>")
-})
-rutaHome.get("/contact", (req,res) => {
-    res.send("<h1>Contact</h1>")
-})
+rutaHome.get("/", home);
+rutaHome.get("/contact", contact);
 
 export default rutaHome;

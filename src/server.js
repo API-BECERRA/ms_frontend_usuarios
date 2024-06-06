@@ -1,16 +1,17 @@
 import express from "express";
 import { config } from "dotenv";
 import ruta from "./routes";
-import ejs from "ejs";
 import path from "path"
+import ejs from "ejs";
 config();
 
 const server = express();
 
-server.set("port", process.env.PORT || 3000);
-server.set('view engine', 'ejs')
-server.set('views', __dirname+'./views')
 
+server.set("port", process.env.PORT || 3000);
+
+server.set('view engine', 'ejs')
+server.set('views', __dirname + './views')
 server.set('views', path.join(__dirname,'views')); //el path.join es para que indiferentemente del sistema operativo sirva la ruta
 
 server.use(express.static(path.join(__dirname,'public')))
